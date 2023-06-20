@@ -13,6 +13,7 @@ public class LinkedList {
         tail = node;
         size = 1;
     }
+
     public void insertAt(int position, int nodeValue) {
         Node node = new Node();
         node.value = nodeValue;
@@ -35,39 +36,11 @@ public class LinkedList {
         }
         size++;
     }
-    public void printLinkedList() {
-        if (head == null) {
-            System.out.println("list not created ");
-        } else {
-            Node tempNode = head;
-            for (int i = 1; i <= size; i++) {
-                System.out.print(tempNode.value);
-                if (i < size) {
-                    System.out.print(" -> ");
-                }
-                tempNode = tempNode.next;
-            }
-        }
-        System.out.println();
-    }
-    public void search(int value) {
-        Node tempNode = head;
-        boolean flag = false;
-        for (int i = 1; i < size; i++) {
-            if (tempNode.value == value) {
-                System.out.println(value + " is found at " + i);
-                flag = true;
-                break;
-            }
-            tempNode = tempNode.next;
-        }
-        if (!flag) {
-            System.out.println(value + " not present.");
-        }
-    }
+
     public void deleteAt(int position) {
         if (head == null) {
-            System.out.println("LinkedList not created yet");
+            System.out.println("No any item to delete.");
+            return;
         } else if (position == 0) {
             head = head.next;
             if (size == 1) {
@@ -94,7 +67,38 @@ public class LinkedList {
         }
         size--;
     }
-    public int length(){
-        return size;
+
+    public void printLinkedList() {
+        if (head == null) {
+            System.out.println("LinkedList not created yet ");
+        } else {
+            Node tempNode = head;
+            for (int i = 1; i <= size; i++) {
+                System.out.print(tempNode.value);
+                if (i < size) {
+                    System.out.print(" -> ");
+                }
+                tempNode = tempNode.next;
+            }
+        }
+        System.out.println();
+    }
+
+    public void search(int value) {
+        if (head != null) {
+            Node tempNode = head;
+            boolean flag = false;
+            for (int i = 1; i < size; i++) {
+                if (tempNode.value == value) {
+                    System.out.println(value + " is found at " + i);
+                    flag = true;
+                    break;
+                }
+                tempNode = tempNode.next;
+            }
+            if (!flag) {
+                System.out.println(value + " not present.");
+            }
+        }
     }
 }

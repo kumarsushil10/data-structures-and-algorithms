@@ -5,7 +5,7 @@ public class DoublyLinkedList {
     Node tail;
     int size;
 
-    public void createDoublyLinkedList(int nodeValue) {
+    public void createLinkedList(int nodeValue) {
         Node node = new Node();
         node.value = nodeValue;
         node.next = null;
@@ -19,7 +19,7 @@ public class DoublyLinkedList {
         Node node = new Node();
         node.value = nodeValue;
         if (head == null) {
-            createDoublyLinkedList(nodeValue);
+            createLinkedList(nodeValue);
             return;
         } else if (position == 0) {
             head.previous = node;
@@ -43,57 +43,9 @@ public class DoublyLinkedList {
         size++;
     }
 
-    public void printDoublyLinkedList() {
-        if (head == null) {
-            System.out.println("DoublyLinkedList not created yet");
-        } else {
-            Node tempNode = head;
-            for (int i = 1; i <= size; i++) {
-                System.out.print(tempNode.value);
-                if (i < size) {
-                    System.out.print(" -> ");
-                }
-                tempNode = tempNode.next;
-            }
-        }
-        System.out.println();
-    }
-
-    public void printReverseDoublyLinkedList() {
-        if (tail == null) {
-            System.out.println("DoublyLinkedList not created yet");
-        } else {
-            Node tempNode = tail;
-            for (int i = size; i >= 1; i--) {
-                System.out.print(tempNode.value);
-                if (i > 1) {
-                    System.out.print(" -> ");
-                }
-                tempNode = tempNode.previous;
-            }
-        }
-        System.out.println();
-    }
-
-    public void search(int value) {
-        Node tempNode = head;
-        boolean flag = false;
-        for (int i = 1; i < size; i++) {
-            if (tempNode.value == value) {
-                System.out.println(value + " is found at " + i);
-                flag = true;
-                break;
-            }
-            tempNode = tempNode.next;
-        }
-        if (!flag) {
-            System.out.println(value + " not present.");
-        }
-    }
-
     public void deleteAt(int position) {
         if (head == null) {
-            System.out.println("No any item present ");
+            System.out.println("No any item to delete.");
             return;
         } else if (position == 0) {
             head = head.next;
@@ -122,5 +74,55 @@ public class DoublyLinkedList {
             tempNode.next.previous = tempNode;
         }
         size--;
+    }
+
+    public void printLinkedList() {
+        if (head == null) {
+            System.out.println("LinkedList not created yet");
+        } else {
+            Node tempNode = head;
+            for (int i = 1; i <= size; i++) {
+                System.out.print(tempNode.value);
+                if (i < size) {
+                    System.out.print(" -> ");
+                }
+                tempNode = tempNode.next;
+            }
+            System.out.println();
+        }
+    }
+
+    public void printReversedLinkedList() {
+        if (head == null) {
+            System.out.println("LinkedList not created yet");
+        } else {
+            Node tempNode = tail;
+            for (int i = size; i >= 1; i--) {
+                System.out.print(tempNode.value);
+                if (i > 1) {
+                    System.out.print(" -> ");
+                }
+                tempNode = tempNode.previous;
+            }
+            System.out.println();
+        }
+    }
+
+    public void search(int value) {
+        if (head != null) {
+            Node tempNode = head;
+            boolean flag = false;
+            for (int i = 1; i <= size; i++) {
+                if (tempNode.value == value) {
+                    System.out.println(value + " is found at " + i);
+                    flag = true;
+                    break;
+                }
+                tempNode = tempNode.next;
+            }
+            if (!flag) {
+                System.out.println(value + " not present.");
+            }
+        }
     }
 }

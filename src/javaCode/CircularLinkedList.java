@@ -5,7 +5,7 @@ public class CircularLinkedList {
     Node tail;
     int size;
 
-    public void createCircularLinkedList(int nodeValue) {
+    public void createLinkedList(int nodeValue) {
         Node node = new Node();
         node.value = nodeValue;
         node.next = node;
@@ -13,11 +13,12 @@ public class CircularLinkedList {
         tail = node;
         size = 1;
     }
+
     public void insertAt(int position, int nodeValue) {
         Node node = new Node();
         node.value = nodeValue;
         if (head == null) {
-            createCircularLinkedList(nodeValue);
+            createLinkedList(nodeValue);
             return;
         } else if (position == 0) {
             node.next = head;
@@ -37,9 +38,46 @@ public class CircularLinkedList {
         }
         size++;
     }
-    public void printCircularLinkedList() {
+
+    public void deleteAt(int position) {
         if (head == null) {
-            System.out.println("Circular LinkedList not created yet");
+            System.out.println("No any item to delete.");
+            return;
+        } else if (position == 0) {
+            head = head.next;
+            tail.next = head;
+            if (size == 1) {
+                head.next = null;
+                head = null;
+                tail = null;
+            }
+        } else if (position >= size) {
+            if (size == 1) {
+                head.next = null;
+                head = null;
+                tail = null;
+            } else {
+                Node tempNode = head;
+                while (tempNode.next != tail) {
+                    tempNode = tempNode.next;
+                }
+                tail = tempNode;
+                tail.next = head;
+
+            }
+        } else {
+            Node tempNode = head;
+            for (int i = 1; i < position; i++) {
+                tempNode = tempNode.next;
+            }
+            tempNode.next = tempNode.next.next;
+        }
+        size--;
+    }
+
+    public void printLinkedList() {
+        if (head == null) {
+            System.out.println("LinkedList not created yet");
         } else {
             Node tempNode = head;
             for (int i = 1; i <= size; i++) {
@@ -52,57 +90,22 @@ public class CircularLinkedList {
         }
         System.out.println();
     }
-    public void search(int value){
-        Node tempNode = head;
-        boolean flag = false;
-        for (int i = 1; i < size; i++) {
-            if (tempNode.value == value) {
-                System.out.println(value + " is found at " + i);
-                flag = true;
-                break;
-            }
-            tempNode = tempNode.next;
-        }
-        if (!flag) {
-            System.out.println(value + " not present.");
-        }
-    }
-    public void deleteAt(int position) {
-        if (head == null) {
-            System.out.println("Circular LinkedList not created yet");
-            return;
-        } else if (position == 0) {
-            head = head.next;
-            tail.next = head;
-            if (size == 1) {
-                head.next = null;
-                head = null;
-                tail = null;
-            }
-        }else if(position >= size){
-            if (size == 1) {
-                head.next = null;
-                head = null;
-                tail = null;
-            }else {
-                Node tempNode = head;
-                while (tempNode.next !=tail){
-                    tempNode = tempNode.next;
-                }
-                tail = tempNode;
-                tail.next = head;
 
-            }
-        }else{
+    public void search(int value) {
+        if (head != null) {
             Node tempNode = head;
-            for (int i =1;i<position;i++){
+            boolean flag = false;
+            for (int i = 1; i < size; i++) {
+                if (tempNode.value == value) {
+                    System.out.println(value + " is found at " + i);
+                    flag = true;
+                    break;
+                }
                 tempNode = tempNode.next;
             }
-            tempNode.next = tempNode.next.next;
+            if (!flag) {
+                System.out.println(value + " not present.");
+            }
         }
-        size--;
-    }
-    public int length(){
-        return size;
     }
 }
