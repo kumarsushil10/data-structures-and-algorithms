@@ -1,4 +1,5 @@
 package javaCode;
+import java.util.HashSet;
 
 public class LinkedList {
     Node head;
@@ -100,5 +101,41 @@ public class LinkedList {
                 System.out.println(value + " not present.");
             }
         }
+    }
+    public int len() {
+        return size;
+    }
+
+    public void removeDuplicate() {
+        Node currentNode = head;
+        HashSet<Integer> hashSet = new HashSet();
+        Node previous = null;
+        while (currentNode != null) {
+            if (hashSet.contains(currentNode.value)) {
+                previous.next = currentNode.next;
+                size--;
+            } else {
+                hashSet.add(currentNode.value);
+                previous = currentNode;
+            }
+            currentNode = currentNode.next;
+        }
+    }
+
+    public int nthNodeValue(int position) {
+        Node tempNode = head;
+        for (int i = 1; i < position; i++) {
+            tempNode = tempNode.next;
+        }
+        return tempNode.value;
+    }
+
+    public int nthNodeValueFromLast(int positionFromLast) {
+        int position = size + 1 - positionFromLast;
+        Node tempNode = head;
+        for (int i = 1; i < position; i++) {
+            tempNode = tempNode.next;
+        }
+        return tempNode.value;
     }
 }
