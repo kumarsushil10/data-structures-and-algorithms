@@ -2,23 +2,17 @@ package javaCode;
 
 public class Main {
     public static void main(String[] args) {
-        Queue queue = new Queue();
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
-        queue.enqueue(4);
-        queue.enqueue(5);
-        queue.print();
+        Stack stack = new Stack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.print();
 
-        queue.dequeue();
-        queue.print();
-
-        queue.enqueue(6);
-        queue.enqueue(7);
-        queue.print();
-
-        queue.dequeue();
-        queue.print();
+        stack.pop();
+        stack.print();
+        stack.push(5);
+        stack.print();
 
     }
 }
