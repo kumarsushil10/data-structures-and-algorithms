@@ -3,6 +3,7 @@ package javaCode;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+
 public class StringQuestions {
 
     public int stringLength(String lines) {
@@ -47,4 +48,44 @@ public class StringQuestions {
         }
         return true;
     }
+
+    //    our task is to divide the string S into n equal parts.
+    //    We will print an error message if the string cannot be
+    //    divisible into n equal parts otherwise all the parts need
+    //    to be printed as the output of the program.
+    public void nEqualParts(String str, int parts) {
+        int size = str.length();
+        int slice = size / parts;
+        if (size % parts != 0) {
+            System.out.println(str + "\nis not possible to divide into " + parts + " equal parts");
+        } else {
+            for (int i = 0; i < size; i = i + slice) {
+                String subString = str.substring(i, i + slice);
+                System.out.println(subString);
+            }
+        }
+    }
+
+    public void subStringOfString(String str) {
+        int len = str.length();
+        int temp = 0;
+        int arrSize = (len * (len + 1)) / 2;
+        String[] arr = new String[arrSize];
+        for (int i = 0; i < len; i++) {
+            for (int j = i; j < len; j++) {
+                arr[temp] = str.substring(i, j + 1);
+                temp++;
+            }
+        }
+        for (int i = 0; i < arrSize; i++) {
+            System.out.println(arr[i]);
+        }
+
+    }
+
+    public void longestRepeatedString() {
+
+    }
+
+
 }
