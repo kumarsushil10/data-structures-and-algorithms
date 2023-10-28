@@ -25,4 +25,18 @@ public class Palindrome {
         }
         return sum;
     }
+
+    public static boolean isPalindrome(String str) {
+        int last = str.length() - 1;
+        int first = 0;
+        while (first < last) {
+            if (str.charAt(first) != str.charAt(last)) {
+                return false;
+            }
+            last--;
+            first++;
+        }
+        return true;
+    }
+
 }
