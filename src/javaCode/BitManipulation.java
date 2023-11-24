@@ -79,4 +79,43 @@ public class BitManipulation {
     public boolean isPowerOfTwo(int num) {
         return (num & (num - 1)) == 0;
     }
+
+    public int positionOfOnlySetBit(int num) {
+        if ((num & (num - 1)) != 0) {
+            return -1;
+        }
+        int position = 1;
+        while ((num & 1) == 0) {
+            num = num >> 1;
+            position++;
+        }
+
+
+//        Alternate Method
+//        int position = (int) (Math.log(num) / Math.log(2) + 1);
+
+
+        return position;
+    }
+
+
+    public boolean parityOfNumber(int num) {
+        // if total number of 1's present in given num is odd
+        // than it will return true, means odd parity
+        // else it will return false, means even parity
+
+        int count = 0;
+        while (num > 0) {
+            if ((num & 1) != 0) count++;
+            num = num >> 1;
+        }
+        return (count & 1) != 0;
+    }
+
+    public int absoluteValueOfIntegerWithoutBranching(int num) {
+        int bitMask = Integer.SIZE * 8 - 1;
+        return (num + bitMask) ^ bitMask;
+    }
+
+
 }
