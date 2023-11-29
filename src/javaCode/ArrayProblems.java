@@ -41,25 +41,42 @@ public class ArrayProblems {
         System.out.println(Arrays.toString(nums));
     }
 
-    public void rightRotation(int[] nums,int rotation){
+    public void rightRotation(int[] nums, int rotation) {
         for (int i = 0; i < rotation; i++) {
-            int j, last = nums[nums.length-1];
-            for (j = nums.length-1; j >0; j--) {
-                nums[j] = nums[j-1];
+            int j, last = nums[nums.length - 1];
+            for (j = nums.length - 1; j > 0; j--) {
+                nums[j] = nums[j - 1];
             }
             nums[j] = last;
         }
         System.out.println(Arrays.toString(nums));
     }
 
-    public void elementAtEvenPosition(int[] nums){
-        for (int i= 0;i<nums.length;i +=2){
-            System.out.print(nums[i]+"  ");
+    public void elementAtEvenPosition(int[] nums) {
+        for (int i = 0; i < nums.length; i += 2) {
+            System.out.print(nums[i] + "  ");
         }
     }
-    public void elementAtOddPosition(int[] nums){
-        for (int i= 1;i<nums.length;i +=2){
-            System.out.print(nums[i]+"  ");
+
+    public void elementAtOddPosition(int[] nums) {
+        for (int i = 1; i < nums.length; i += 2) {
+            System.out.print(nums[i] + "  ");
         }
+    }
+
+    public int largestElementOfArray(int[] nums) {
+        int max = nums[0];
+        for (int num : nums)
+            if (max < num)
+                max = num;
+        return max;
+    }
+
+    public int smallestElementOfArray(int[] nums) {
+        int min = nums[0];
+        for (int num : nums)
+            if (min > num)
+                min = num;
+        return min;
     }
 }
