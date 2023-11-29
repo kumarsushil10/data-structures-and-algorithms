@@ -2,6 +2,7 @@ package javaCode;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class ArrayProblems {
     public void copyArray(int[] nums) {
@@ -86,10 +87,36 @@ public class ArrayProblems {
             sum += num;
         return sum;
     }
-    public int productOfAllElement(int[] nums){
+
+    public int productOfAllElement(int[] nums) {
         int product = 1;
-        for(int num:nums)
+        for (int num : nums)
             product *= num;
         return product;
     }
+
+    public void printAllDuplicate(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            if (!map.containsKey(num)) {
+                map.put(num, 1);
+            } else {
+                map.put(num, map.get(num) + 1);
+            }
+        }
+        for (int key : map.keySet()) {
+            if (map.get(key) > 1) {
+                System.out.print(map.get(key) + " ");
+            }
+        }
+    }
+
+    public void removeDuplicate(int[] nums){
+        HashSet<Integer> set = new HashSet<Integer>();
+        for (int num:nums){
+            set.add(num);
+        }
+        System.out.println(set);
+    }
+
 }
