@@ -51,4 +51,15 @@ public class ArrayProblems {
         }
         System.out.println(Arrays.toString(nums));
     }
+
+    public void elementAtEvenPosition(int[] nums){
+        for (int i= 0;i<nums.length;i +=2){
+            System.out.print(nums[i]+"  ");
+        }
+    }
+    public void elementAtOddPosition(int[] nums){
+        for (int i= 1;i<nums.length;i +=2){
+            System.out.print(nums[i]+"  ");
+        }
+    }
 }
