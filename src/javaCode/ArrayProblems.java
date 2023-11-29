@@ -79,4 +79,17 @@ public class ArrayProblems {
                 min = num;
         return min;
     }
+
+    public int sumOfAllElement(int[] nums) {
+        int sum = 0;
+        for (int num : nums)
+            sum += num;
+        return sum;
+    }
+    public int productOfAllElement(int[] nums){
+        int product = 1;
+        for(int num:nums)
+            product *= num;
+        return product;
+    }
 }
