@@ -4,11 +4,16 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayProblems arrayProblems = new ArrayProblems();
-        int[] nums = new int[]{3,2,23,34,35,6,73,2,52,5,5,1};
-        System.out.println(Arrays.toString(nums));
-        System.out.println(arrayProblems.secondLargestNumber(nums));
-        System.out.println(arrayProblems.secondSmallestNumber(nums));
+        MatrixProblems matrixProblems = new MatrixProblems();
+        int[][] matrix1 = new int[][]{{9, 2, 31}, {8, 32, 32}, {1, 28, 3}};
+        int[][] matrix2 = new int[][]{{1, 22, 3}, {1, 82, 3}, {13, 2, 93}};
+        System.out.println("Addition of two matrix : ");
+        matrixProblems.addTwoMatrix(matrix1, matrix2);
+        System.out.println("Subtraction of two matrix : ");
+        matrixProblems.subtractTwoMatrix(matrix1, matrix2);
+        System.out.println("Multiplication of two matrix : ");
+        matrixProblems.multiplyTwoMatrix(matrix1, matrix2);
+
 
     }
 }
