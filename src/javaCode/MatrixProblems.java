@@ -33,4 +33,21 @@ public class MatrixProblems {
             System.out.println();
         }
     }
+
+    public boolean isBothMatrixSame(int[][] matrix1, int[][] matrix2) {
+        for (int k = 0; k < matrix1.length || k < matrix2.length; k++) {
+            if (matrix1.length != matrix2.length || matrix1[k].length != matrix2[k].length) {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix1.length; j++) {
+                if (matrix1[i][j] != matrix2[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
