@@ -111,12 +111,21 @@ public class ArrayProblems {
         }
     }
 
-    public void removeDuplicate(int[] nums){
+    public void removeDuplicate(int[] nums) {
         HashSet<Integer> set = new HashSet<Integer>();
-        for (int num:nums){
+        for (int num : nums) {
             set.add(num);
         }
         System.out.println(set);
     }
 
+    public int secondLargestNumber(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length - 2];
+    }
+
+    public int secondSmallestNumber(int[] nums) {
+        Arrays.sort(nums);
+        return nums[1];
+    }
 }
