@@ -76,4 +76,20 @@ public class MatrixProblems {
             System.out.println();
         }
     }
+
+    public void totalOddEvenInMatrix(int[][] matrix) {
+        int countEven = 0;
+        int countOdd = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if ((matrix[i][j] & 1) == 1) {
+                    countOdd++;
+                } else {
+                    countEven++;
+                }
+            }
+        }
+        System.out.println("Total Even Number is : " + countEven);
+        System.out.println("Total Odd Number is : " + countOdd);
+    }
 }
