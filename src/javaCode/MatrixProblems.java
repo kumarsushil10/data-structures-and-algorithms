@@ -92,4 +92,18 @@ public class MatrixProblems {
         System.out.println("Total Even Number is : " + countEven);
         System.out.println("Total Odd Number is : " + countOdd);
     }
+
+    public void sumOfRowAndColumn(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            int rowSum = 0;
+            int columnSum = 0;
+            for (int j = 0; j < matrix[i].length; j++) {
+                rowSum += matrix[i][j];
+                columnSum += matrix[j][i];
+            }
+            System.out.println("sum of Row " + i + " is " + rowSum);
+            System.out.println("sum of Column " + i + " is " + columnSum);
+        }
+    }
+
 }
