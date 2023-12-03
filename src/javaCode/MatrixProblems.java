@@ -121,4 +121,17 @@ public class MatrixProblems {
             System.out.println();
         }
     }
+
+    public boolean isIdenticalMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (i == j && matrix[i][j] != 1) {
+                    return false;
+                } else if (i != j && matrix[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
