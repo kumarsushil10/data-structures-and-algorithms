@@ -3,8 +3,7 @@ package javaCode;
 public class Main {
     public static void main(String[] args) {
         StringProblems stringProblems = new StringProblems();
-        String str1 = "Brag";
-        String str2 = "Grab";
-        System.out.println(stringProblems.isAnagram(str1, str2));
+        String str = "aaaabbbbcccc";
+        stringProblems.divideStringInto(3,str);
     }
 }

@@ -55,4 +55,15 @@ public class StringProblems {
         return true;
     }
 
+    public void divideStringInto(int parts, String str) {
+        int part = str.length() / parts;
+        if (str.length() % parts != 0) {
+            System.out.println("Dividing " + str + " into " + parts + " is not possible");
+        } else {
+            for (int i = 0; i < str.length(); i += part) {
+                System.out.println(str.substring(i, i + part));
+            }
+        }
+    }
+
 }
