@@ -1,5 +1,7 @@
 package javaCode;
 
+import java.util.Arrays;
+
 public class StringProblems {
     public int noOfCharacters(String str) {
         int count = 0;
@@ -33,6 +35,24 @@ public class StringProblems {
         }
         System.out.println("Total vowel = " + countVowel);
         System.out.println("Total consonant = " + countConsonant);
+    }
+
+    public boolean isAnagram(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+        String str1 = s1.toLowerCase();
+        String str2 = s2.toLowerCase();
+        char[] char1 = str1.toCharArray();
+        char[] char2 = str2.toCharArray();
+        Arrays.sort(char1);
+        Arrays.sort(char2);
+        for (int i = 0; i < char1.length; i++) {
+            if (char1[i] != char2[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
