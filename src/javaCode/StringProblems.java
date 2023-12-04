@@ -1,6 +1,8 @@
 package javaCode;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class StringProblems {
     public int noOfCharacters(String str) {
@@ -64,6 +66,16 @@ public class StringProblems {
                 System.out.println(str.substring(i, i + part));
             }
         }
+    }
+
+    public void subsetOfString(String str) {
+        List<String> subset = new ArrayList<>();
+        for (int i = 0; i <= str.length(); i++) {
+            for (int j = i + 1; j <= str.length(); j++) {
+                subset.add(str.substring(i, j));
+            }
+        }
+        System.out.println(subset);
     }
 
 }
